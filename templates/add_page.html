@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="{% url 'addpage' %}" method="post"">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <button type="submit" class="label theme-bg2 text-white f-12" value="+">Сообщить о готовности</button>
+    
+    
+    </form>
+
+    {% for el in table %}
+        <form action="{% url 'msgtgbot' %}" method="post">
+            {% csrf_token %}    
+            <tr>
+                <th scope="row">{{ el.id }}</th>
+                <td class="id_user">{{ el.id_user }}</td>
+                <td>{{ el.works }}</td>
+                <td class="themes">{{ el.themes }}</td>
+                <td>{{ el.days }}</td>
+                <td>{{ el.origins }}</td>
+                <td>{{ el.plus_func }}</td>
+                <td>{{ el.money }} </td>  
+                <td><button type="submit" class="label theme-bg2 text-white f-12" value="+">Сообщить о готовности</button></td>                  
+                         
+            </tr>
+        </form>
+    {% endfor %}
+</body>
+</html>

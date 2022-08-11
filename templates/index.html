@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Информация о заказах</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://appseed.us/generator/datta-able/">
+    <meta name="google-site-verification" content="kCT200-J0rfczENRkJQdYCqsDKkUo3Hvr3KZic_otwU">
+        
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options">
+    <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template">
+    <meta name="author" content="CodedThemes">
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="https://img.icons8.com/color/344/accept-database.png" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/data-able-v100-enh1/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/data-able-v100-enh1/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/data-able-v100-enh1/css/style.css">
+    <!-- dark mode css -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/data-able-v100-enh1/css/dark.css">
+
+    <!-- Specific CSS goes HERE -->
+    
+
+</head>
+<body>
+    <div class="col-xl-12">
+        <br>
+        <div class="card"> 
+            <div class="card-block table-border-style">
+                <h4 style="text-align: center;">Информация о заказах</h4> 
+                <form method="post">
+                    {% csrf_token %}
+                    URL: {{ form.url_name }} ID: {{ form.id_works }}
+                    <input class="label theme-bg2 text-white f-12" type="submit" value="Добавить URL">
+                </form>
+                <div class="table-responsive">
+                    <table class="table" style="table-layout: fixed; width:100%;">
+                        <thead>
+                            <tr>
+                                <th width="85px">ID заказа</th>
+                                <th >ID пользователя</th>  
+                                <th>Вид работы:</th>
+                                <th>Тема задания</th>
+                                <th >Срок выполнения</th>
+                                <th width="140px">Ориг задания</th>
+                                <th >Доп информация</th>
+                                <th >URL</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for el in table %}
+                                <tr>
+                                    <td scope="row" style="white-space: pre-wrap;">{{ el.id }}</td>
+                                    <td class="id_user" style="white-space: pre-wrap;">{{ el.id_user }}</td>
+                                    <td style="white-space: pre-wrap;">{{ el.works }}</td>
+                                    <td class="themes" style="white-space: pre-wrap;">{{ el.themes }}</td>
+                                    <td style="white-space: pre-wrap;">{{ el.days }}</td>
+                                    <td style="white-space: pre-wrap;">{{ el.origins }}</td>
+                                    <td style="white-space: pre-wrap;">{{ el.plus_func }}</td>
+                                    <td style="white-space: pre-wrap;"><label>{{ el.url_name}}</td> 
+                                    <td><a class="label theme-bg2 text-white f-12" href="{% url 'delete' el.id_user el.id  %}">Сообщить о готовности</a></td> 
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+

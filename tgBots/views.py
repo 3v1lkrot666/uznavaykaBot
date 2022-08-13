@@ -10,9 +10,9 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import asyncio
 
 
-TOKEN_client ='5184134875:AAEytNLoJf_PK0FblHHpKVl1d3k6c7SO1vs'
+TOKEN_client =''
 
-TOKEN_admin = '5472667053:AAE9QsmxhwQscvSoZFt4y19ikbmMen4Omvs'
+TOKEN_admin = ''
 
 bot_admin = Bot(token=TOKEN_admin)
 
